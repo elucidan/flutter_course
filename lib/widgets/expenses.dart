@@ -1,8 +1,7 @@
-import 'dart:ui';
-
 import 'package:flutter_course/widgets/expenses_list/expenses_list.dart';
 import 'package:flutter_course/models/expense.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_course/widgets/new_expense.dart';
 
 class Expenses extends StatefulWidget {
   const Expenses({super.key});
@@ -18,7 +17,7 @@ class _ExpensesState extends State<Expenses> {
     showModalBottomSheet(
       context: context,
       builder: (ctx) {
-        return const Text('Modal bottom sheet');
+        return const NewExpense();
       },
     );
   }
