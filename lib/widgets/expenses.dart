@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter_course/widgets/expenses_list/expenses_list.dart';
 import 'package:flutter_course/models/expense.dart';
 import 'package:flutter/material.dart';
@@ -12,8 +14,13 @@ class Expenses extends StatefulWidget {
 }
 
 class _ExpensesState extends State<Expenses> {
-void _openAddExpenseOverlay() {
-    showBottomSheet(context: context, builder: builder)
+  void _openAddExpenseOverlay() {
+    showModalBottomSheet(
+      context: context,
+      builder: (ctx) {
+        return const Text('Modal bottom sheet');
+      },
+    );
   }
 
   final List<Expense> _registeredExpenses = [
@@ -33,7 +40,10 @@ void _openAddExpenseOverlay() {
     return Scaffold(
       appBar: AppBar(
         title: const Text("Flutter Expense Tracker"),
-        actions: [IconButton(onPressed: _openAddExpenseOverlay, icon: const Icon(Icons.add))],
+        actions: [
+          IconButton(
+              onPressed: _openAddExpenseOverlay, icon: const Icon(Icons.add))
+        ],
       ),
       body: Column(
         children: [
